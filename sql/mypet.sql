@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50732
 File Encoding         : 65001
 
-Date: 2020-11-21 17:14:22
+Date: 2020-11-22 17:42:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3676,9 +3676,10 @@ CREATE TABLE `t_pet` (
   `pet_age` varchar(255) NOT NULL COMMENT '宠物年龄',
   `pet_sex` int(11) NOT NULL COMMENT '宠物性别',
   `pet_describe` varchar(255) NOT NULL COMMENT '宠物描述',
-  `pet_state` int(11) NOT NULL COMMENT '宠物是否被领养',
+  `pet_state` int(11) NOT NULL COMMENT '宠物是否被领养,0表示被领养，1表示没有被领养',
   `category_code` varchar(11) NOT NULL COMMENT '宠物类别编号',
   `admin_code` varchar(255) NOT NULL COMMENT '管理员编号',
+  `isDelete` int(11) NOT NULL COMMENT '是否被删除,0表示被删除,1表示没有被删除',
   PRIMARY KEY (`id`),
   UNIQUE KEY `pet_code` (`pet_code`),
   UNIQUE KEY `category_code` (`category_code`),
@@ -3740,6 +3741,7 @@ CREATE TABLE `t_user` (
   `state` int(11) DEFAULT NULL,
   `address_id` int(11) DEFAULT NULL,
   `admin_code` varchar(255) NOT NULL,
+  `isDelete` int(11) NOT NULL COMMENT '是否被删除,0表示被删除,1表示没有被删除',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_code` (`user_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
